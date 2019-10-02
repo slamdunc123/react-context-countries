@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
+
+// context
 import CountriesContext from './countriesContext';
 
+// packages
 import axios from 'axios';
 
 const CountriesState = props => {
+  // set useState
   const [countries, setCountries] = useState([]);
   console.log(countries);
 
-  const countriesURL = 'https://restcountries-v1.p.rapidapi.com/all';
+  // set url and headers variables
+  const countriesURL = 'https://restcountries-v1.p.rapidapi.com/region/europe';
   const countriesHeaders = {
     headers: {
       'x-rapidapi-host': 'restcountries-v1.p.rapidapi.com',
@@ -15,6 +20,7 @@ const CountriesState = props => {
     }
   };
 
+  // useEffect hook for retrieving api data
   useEffect(() => {
     const getCountries = async () => {
       try {
@@ -25,8 +31,10 @@ const CountriesState = props => {
       } catch (err) {}
     };
     getCountries();
-  }, []);
+  }, []); //add empty array as second parameter to prevent re-render loop
+
   return (
+    // wrap context arround child components and pass down any state values
     <CountriesContext.Provider value={{ countries: countries }}>
       {props.children}
     </CountriesContext.Provider>
