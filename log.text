@@ -1,0 +1,37 @@
+Remove the following and references to them:
+- logo.svg
+- serviceWorker.js
+
+Create the following folders:
+- src/components
+- src/components/pages
+- src/components/layouts
+
+- src/context
+- src/context/myapp
+
+Create the following files:
+- src/context/myapp/myAppContext.js
+- src/context/myapp/myAppState.js
+
+-src/components/pages/MyApp.js
+
+Import myAppContext into myAppState
+Wrap MyAppContext.Provider around {props.children } in return
+
+Import myAppState into App.js
+Wrap MyAppState around all components in return
+
+Import myAppContext into MyApp.js
+
+Install axios and import into myAppState (if requesting api data)
+
+
+
+
+
+
+
+Install axios
+- npm install axios
+
