@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 
 // context
 import CountriesContext from './countriesContext';
+
+// reducers
+import countriesReducer from './countriesReducer';
+
+// types
+import { ADD_COUNTRY, DELETE_COUNTRY } from './countriesTypes';
 
 // packages
 import axios from 'axios';
 
 const CountriesState = props => {
+  const initialState = {
+    countries: []
+  };
+
+  const [state, dispatch] = useReducer(countriesReducer, initialState);
   // set useState
   const [countries, setCountries] = useState([]);
   console.log(countries);
@@ -33,9 +44,30 @@ const CountriesState = props => {
     getCountries();
   }, []); //add empty array as second parameter to prevent re-render loop
 
+  // add country
+  const addCountry = async country => {
+    // const res = await axios.post(countriesURL, country);
+    // console.log(res.data);
+
+    dispatch({
+      type: ADD_COUNTRY,
+      payload: 'Add action fired'
+    });
+  };
+
+  // delete country
+  const deleteCountry = async id => {
+    dispatch({
+      type: DELETE_COUNTRY,
+      payload: 'Delete action fired'
+    });
+  };
+
   return (
     // wrap context arround child components and pass down any state values
-    <CountriesContext.Provider value={{ countries: countries }}>
+    <CountriesContext.Provider
+      value={{ countries: countries, addCountry, deleteCountry }}
+    >
       {props.children}
     </CountriesContext.Provider>
   );

@@ -7,6 +7,7 @@ const Country = ({ country }) => {
     <div className='card'>
       <div className='card-item'>Name: {country.name}</div>
       <div className='card-item'>Population: {country.population}</div>
+      <div className='card-item'>Capital: {country.capital}</div>
     </div>
   );
 };

@@ -11,8 +11,10 @@ import Country from './Country';
 
 const Countries = () => {
   const countriesContext = useContext(CountriesContext);
-  const { countries } = countriesContext;
+  const { countries, addCountry, deleteCountry } = countriesContext;
   console.log(countries);
+  addCountry();
+  deleteCountry();
   return (
     <div>
       Coutries App

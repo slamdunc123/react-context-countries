@@ -26,12 +26,12 @@ Import myAppContext into MyApp.js
 
 Install axios and import into myAppState (if requesting api data)
 
+==============================
+If using useReducer do...
 
+Create the following files:
+- scr/context/myapp/myAppTypes.js
+- src/context/myapp/myAppReducer.js
 
-
-
-
-
-Install axios
-- npm install axios
+Import myAppReducer into MyAppState
 
