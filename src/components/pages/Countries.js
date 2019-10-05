@@ -11,14 +11,14 @@ import Country from './Country';
 
 const Countries = () => {
   const countriesContext = useContext(CountriesContext);
-  const { countries, getCountries, addCountry } = countriesContext;
+  const { countries, getCountries } = countriesContext;
   console.log(countries);
 
   useEffect(() => {
     // useEffect like componentDidMount - runs the getPosts function from PostsState via postsContext
     getCountries();
-    // eslint-disable-next-line
     console.log(countries);
+    // eslint-disable-next-line
   }, []);
 
   // addCountry();

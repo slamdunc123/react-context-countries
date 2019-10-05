@@ -9,7 +9,7 @@ const Country = ({ country }) => {
   const countriesContext = useContext(CountriesContext);
   const { deleteCountry, setCurrentCountry } = countriesContext;
 
-  const { id, name } = country;
+  const { id } = country;
 
   // edit function
   const handleEdit = () => {

@@ -49,6 +49,9 @@ const CountriesForm = () => {
   };
 
   // TODO clearCurrentCountry
+  const clearForm = () => {
+    clearCurrentCountry();
+  };
 
   return (
     <div>
@@ -76,10 +79,10 @@ const CountriesForm = () => {
         <div>
           <input type='submit' value={currentCountry ? 'Update' : 'Add'} />
         </div>
-        <div>
-          <button onClick=''></button>
-        </div>
       </form>
+      <div>
+        <button onClick={clearForm}>Clear</button>
+      </div>
     </div>
   );
 };
