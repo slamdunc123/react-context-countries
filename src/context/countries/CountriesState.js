@@ -12,7 +12,8 @@ import {
   ADD_COUNTRY,
   DELETE_COUNTRY,
   UPDATE_COUNTRY,
-  SET_CURRENT_COUNTRY
+  SET_CURRENT_COUNTRY,
+  CLEAR_CURRENT_COUNTRY
 } from './countriesTypes';
 
 // packages
@@ -95,6 +96,13 @@ const CountriesState = props => {
     });
   };
 
+  // clear current country
+  const clearCurrentCountry = () => {
+    dispatch({
+      type: CLEAR_CURRENT_COUNTRY
+    });
+  };
+
   return (
     // wrap context arround child components and pass down any state values
     <CountriesContext.Provider
@@ -105,7 +113,8 @@ const CountriesState = props => {
         addCountry,
         deleteCountry,
         updateCountry,
-        setCurrentCountry
+        setCurrentCountry,
+        clearCurrentCountry
       }}
     >
       {props.children}

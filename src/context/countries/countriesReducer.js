@@ -2,7 +2,9 @@ import {
   GET_COUNTRIES,
   ADD_COUNTRY,
   DELETE_COUNTRY,
-  UPDATE_COUNTRY
+  UPDATE_COUNTRY,
+  SET_CURRENT_COUNTRY,
+  CLEAR_CURRENT_COUNTRY
 } from './countriesTypes';
 
 export default (state, action) => {
@@ -32,6 +34,16 @@ export default (state, action) => {
         countries: state.countries.map(country =>
           country.id === action.payload.id ? action.payload : country
         )
+      };
+    case SET_CURRENT_COUNTRY:
+      return {
+        ...state,
+        currentCountry: action.payload
+      };
+    case CLEAR_CURRENT_COUNTRY:
+      return {
+        ...state,
+        currentCountry: null
       };
     default:
       return state;

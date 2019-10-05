@@ -6,7 +6,23 @@ import CountriesContext from '../../context/countries/countriesContext';
 const CountriesForm = () => {
   // set context
   const countriesContext = useContext(CountriesContext);
-  const { addCountry } = countriesContext;
+  const {
+    addCountry,
+    updateCountry,
+    clearCurrentCountry,
+    currentCountry
+  } = countriesContext;
+
+  useEffect(() => {
+    if (currentCountry !== null) {
+      setCountry(currentCountry);
+    } else {
+      setCountry({
+        name: '',
+        capital: ''
+      });
+    }
+  }, [countriesContext, currentCountry]);
 
   // set state
   const [country, setCountry] = useState({
@@ -24,13 +40,21 @@ const CountriesForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    addCountry(country);
+    if (currentCountry === null) {
+      addCountry(country);
+    } else {
+      updateCountry(country);
+    }
+    clearCurrentCountry();
   };
+
+  // TODO clearCurrentCountry
 
   return (
     <div>
       Countries Form
       <form onSubmit={onSubmit}>
+        <h2>{currentCountry ? 'Edit Form' : 'Add Form'}</h2>
         <div>
           <input
             type='text'
@@ -50,7 +74,7 @@ const CountriesForm = () => {
           />
         </div>
         <div>
-          <input type='submit' />
+          <input type='submit' value={currentCountry ? 'Update' : 'Add'} />
         </div>
         <div>
           <button onClick=''></button>
