@@ -6,20 +6,34 @@ import {
 } from './countriesTypes';
 
 export default (state, action) => {
+  console.log(action);
   switch (action.type) {
     case GET_COUNTRIES:
-      console.log('getCountries fired');
-      break;
+      return {
+        ...state,
+        countries: action.payload
+      };
     case ADD_COUNTRY:
-      console.log('addCountry fired', action.payload);
-      break;
+      return {
+        ...state,
+        countries: [action.payload, ...state.countries]
+      };
     case DELETE_COUNTRY:
-      console.log('deleteCountry fired', action.payload);
-      break;
+      // console.log('deleteCountry fired', action.payload);
+      return {
+        ...state,
+        countries: state.countries.filter(
+          country => country.id !== action.payload
+        )
+      };
     case UPDATE_COUNTRY:
-      console.log('updateCountry fired');
-      break;
+      return {
+        ...state,
+        countries: state.countries.map(country =>
+          country.id === action.payload.id ? action.payload : country
+        )
+      };
     default:
-      console.log('default fired');
+      return state;
   }
 };

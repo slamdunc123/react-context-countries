@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 // css
 import './Countries.css';
@@ -11,10 +11,17 @@ import Country from './Country';
 
 const Countries = () => {
   const countriesContext = useContext(CountriesContext);
-  const { countries, addCountry, deleteCountry } = countriesContext;
+  const { countries, getCountries, addCountry } = countriesContext;
   console.log(countries);
-  addCountry();
-  deleteCountry();
+
+  useEffect(() => {
+    // useEffect like componentDidMount - runs the getPosts function from PostsState via postsContext
+    getCountries();
+    // eslint-disable-next-line
+    console.log(countries);
+  }, []);
+
+  // addCountry();
   return (
     <div>
       Coutries App

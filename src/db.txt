@@ -1,0 +1,14 @@
+npm install -g json-server
+json-server --watch db.json -p 3100
+
+(use data below if there is no data initially)
+
+{
+  "countries": [
+    { "id":"1", "name": "country1", "capital": "capital1" },
+    { "id":"2", "name": "country2", "capital": "capital2" },
+    { "id":"3", "name": "country3", "capital": "capital3" },
+    { "id":"4", "name": "country4", "capital": "capital4" },
+    { "id":"5", "name": "country5", "capital": "capital5" }
+  ]
+}
