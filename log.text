@@ -35,3 +35,13 @@ Create the following files:
 
 Import myAppReducer into MyAppState
 
+
+
+
+
+
+==============================
+Install sass
+- npm install node-sass --save
+- change filename from .css to .scss
+

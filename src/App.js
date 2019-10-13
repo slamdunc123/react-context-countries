@@ -1,6 +1,6 @@
 import React from 'react';
 import CountriesState from './context/countries/CountriesState';
-import './App.css';
+import './App.scss';
 
 import CountriesForm from './components/paritals/CountriesForm';
 import Countries from './components/pages/Countries';

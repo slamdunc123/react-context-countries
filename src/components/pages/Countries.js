@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from "react";
 
-// css
-import './Countries.css';
+// scss
+import "./Countries.scss";
 
 // context
-import CountriesContext from '../../context/countries/countriesContext';
+import CountriesContext from "../../context/countries/countriesContext";
 
 // components
-import Country from './Country';
+import Country from "./Country";
 
 const Countries = () => {
   const countriesContext = useContext(CountriesContext);
@@ -26,10 +26,10 @@ const Countries = () => {
     <div>
       Coutries App
       {countries !== null ? (
-        <div>
-          {countries.length}
+        <div className='countries-container'>
+          {/* {countries.length} */}
           {countries.map((country, index) => (
-            <div className='countries-container' key={index}>
+            <div className='country-container' key={index}>
               <Country country={country} />
             </div>
           ))}

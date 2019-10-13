@@ -3,6 +3,9 @@ import React, { useState, useContext, useEffect } from 'react';
 // context
 import CountriesContext from '../../context/countries/countriesContext';
 
+// scss
+import './CountriesForm.scss';
+
 const CountriesForm = () => {
   // set context
   const countriesContext = useContext(CountriesContext);
@@ -48,17 +51,16 @@ const CountriesForm = () => {
     clearCurrentCountry();
   };
 
-  // TODO clearCurrentCountry
   const clearForm = () => {
     clearCurrentCountry();
   };
 
   return (
-    <div>
+    <div className='form-container'>
       Countries Form
       <form onSubmit={onSubmit}>
         <h2>{currentCountry ? 'Edit Form' : 'Add Form'}</h2>
-        <div>
+        <div className='form-input'>
           <input
             type='text'
             placeholder='name'
@@ -67,7 +69,7 @@ const CountriesForm = () => {
             onChange={onChange}
           />
         </div>
-        <div>
+        <div className='form-input'>
           <input
             type='text'
             placeholder='capital'

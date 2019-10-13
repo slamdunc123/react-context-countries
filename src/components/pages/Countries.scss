@@ -1,0 +1,15 @@
+.countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // border: 1px dotted red;
+  background-color: red;
+  margin: auto 100px;
+}
+
+.country-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background-color: #ccc;
+}

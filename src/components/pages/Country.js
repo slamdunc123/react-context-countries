@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import CountriesContext from '../../context/countries/countriesContext';
 
-import './Country.css';
+import './Country.scss';
 
 const Country = ({ country }) => {
   // context
